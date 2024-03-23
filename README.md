@@ -94,4 +94,4 @@ issue: [https://github.com/easy-swoole/easyswoole/issues](https://github.com/eas
 
 加群请加微信：
 
-![](contactus.jpg)
+<img src="https://raw.githubusercontent.com/easy-swoole-php/easyswoole-skeleton/main/contactus.jpg" width="210">
