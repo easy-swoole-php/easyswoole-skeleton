@@ -41,14 +41,14 @@ To create your new EasySwoole project:
 ## Install with 3.5.x version
 
 ```bash
-composer create-project easy-swoole-php/easyswoole-skeleton:~3.5.x project_name
+composer create-project easy-swoole-php/easyswoole-skeleton="3.5.1" project_name
 ```
 
 If your development environment is based on Docker you can use the official Composer image to create a new EasySwoole
 project:
 
 ```bash
-docker run --rm -it -v $(pwd):/var/www composer create-project --ignore-platform-reqs easy-swoole-php/easyswoole-skeleton:~3.5.x project_name
+docker run --rm -it -v $(pwd):/var/www composer create-project --ignore-platform-reqs easy-swoole-php/easyswoole-skeleton="3.5.1" project_name
 ```
 
 ## Install with 3.7.x version
