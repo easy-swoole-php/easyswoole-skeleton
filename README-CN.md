@@ -28,7 +28,7 @@
 
 # 使用 Composer 安装
 
-创建新 `EasySwoole` 项目的最简单方法是使用 `Composer`。 如果您尚未安装，可以按照下面的步骤进行安装。
+创建新 `EasySwoole` 项目的最简单方法是使用 [Composer](https://getcomposer.org/)。 如果您尚未安装，请按照[文档](https://getcomposer.org/download/)安装。
 
 创建新的 `EasySwoole` 项目：
 

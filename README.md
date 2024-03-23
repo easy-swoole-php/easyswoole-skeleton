@@ -28,7 +28,7 @@ When you don't want to use `Docker` as the basis for your running environment, y
 
 # Installation with Composer
 
-The easiest way to create a new `EasySwoole` project is to use `Composer`. If you don't have it already installed, then please install as per the documentation.
+The easiest way to create a new `EasySwoole` project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per the [documentation](https://getcomposer.org/download/).
 
 To create your new `EasySwoole` project:
 
