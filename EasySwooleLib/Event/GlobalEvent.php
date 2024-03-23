@@ -50,6 +50,9 @@ class GlobalEvent
 
     public static function bootstrap($argc, $argv)
     {
+        defined('EASYSWOOLE_SERVER') or define('EASYSWOOLE_SERVER', 1);
+        defined('EASYSWOOLE_WEB_SERVER') or define('EASYSWOOLE_WEB_SERVER', 2);
+        defined('EASYSWOOLE_WEB_SOCKET_SERVER') or define('EASYSWOOLE_WEB_SOCKET_SERVER', 3);
         defined('EASYSWOOLE_TCP_SERVER') or define('EASYSWOOLE_TCP_SERVER', 4);
         defined('EASYSWOOLE_UDP_SERVER') or define('EASYSWOOLE_UDP_SERVER', 5);
 
