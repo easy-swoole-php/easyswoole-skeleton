@@ -1,0 +1,58 @@
+version: '3.4'
+services:
+  easyswoole:
+    build:
+      context: ../
+      dockerfile: Dockerfile
+      args:
+        timezone: Asia/Shanghai
+    command: "php easyswoole server start -mode=dev"
+    image: easyswoole
+    container_name: easyswoole-srv
+    environment:
+      - APP_ENV=test
+      - TIMEZONE=Asia/Shanghai
+    restart: always
+    depends_on:
+      - mysql
+      - redis
+    ports:
+      - "9501:9501"
+      - "9502:9502"
+      - "9503:9503"
+      - "9504:9504"
+      - "9505:9505"
+    volumes:
+      - ../:/var/www
+    networks:
+      - easyswoole
+
+  mysql:
+    image: mysql:8.0.36
+    container_name: mysql-srv
+    ports:
+      - "13306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456 # root用户密码
+    volumes:
+      - "./mysql/mysql8/conf.d/my.cnf:/etc/my.cnf" # 配置文件
+      - "./mysql/mysql8/data:/var/lib/mysql" # 数据库文件
+      - "./mysql/mysql8/logs:/var/log/mysql" # 日志文件
+    restart: always
+    networks:
+      - easyswoole
+
+  redis:
+    image: redis:6.2.14-alpine3.19
+    container_name: redis-srv
+    ports:
+      - "16379:6379"
+    sysctls:
+      net.core.somaxconn: 65535
+    restart: always
+    networks:
+      - easyswoole
+
+networks:
+  easyswoole:
+    driver: bridge
