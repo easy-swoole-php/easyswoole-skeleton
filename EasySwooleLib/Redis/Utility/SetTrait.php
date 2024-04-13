@@ -2,7 +2,7 @@
 
 namespace EasySwooleLib\Redis\Utility;
 
-use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\Redis\Config as RedisConfig;
 use EasySwoole\Redis\Redis;
 use EasySwoole\RedisPool\RedisPool;
 

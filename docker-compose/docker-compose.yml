@@ -6,7 +6,7 @@ services:
       dockerfile: Dockerfile
       args:
         timezone: Asia/Shanghai
-    command: "php easyswoole server start -mode=dev"
+    command: "php easyswoole.php server start -mode=dev"
     image: easyswoole
     container_name: easyswoole-srv
     environment:
@@ -23,7 +23,7 @@ services:
       - "9504:9504"
       - "9505:9505"
     volumes:
-      - ../:/var/www
+      - "../:/var/www"
     networks:
       - easyswoole
 

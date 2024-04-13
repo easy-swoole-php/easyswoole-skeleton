@@ -11,6 +11,7 @@ return [
         'timeout'          => 45, // 数据库连接超时时间
         'charset'          => 'utf8mb4', // 数据库字符编码
         'database'         => 'mysql', // 数据库名
+        'useMysqli'        => true,
         'strict_type'      => false, // 不开启严格模式
         'fetch_mode'       => false,
         'returnCollection' => false, // 设置返回结果为 数组

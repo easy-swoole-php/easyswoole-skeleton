@@ -13,7 +13,7 @@ use EasySwoole\Http\Message\Status;
 use EasySwoole\Http\Request;
 use EasySwoole\Http\Response;
 use EasySwoole\Queue\Driver\RedisQueue;
-use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\Redis\Config as RedisConfig;
 use EasySwoole\Socket\Dispatcher;
 use EasySwooleLib\AppMode;
 use EasySwooleLib\Cli\ArgvArgcParser;
@@ -453,19 +453,8 @@ class GlobalEvent
 
         $depth = intval(Di::getInstance()->get(SysConst::HTTP_CONTROLLER_MAX_DEPTH));
         $depth = $depth > 5 ? $depth : 5;
-        $max = intval(Di::getInstance()->get(SysConst::HTTP_CONTROLLER_POOL_MAX_NUM));
 
-        if ($max == 0) {
-            $max = 500;
-        }
-
-        $waitTime = intval(Di::getInstance()->get(SysConst::HTTP_CONTROLLER_POOL_WAIT_TIME));
-
-        if ($waitTime == 0) {
-            $waitTime = 5;
-        }
-
-        $httpDispatcher = \EasySwoole\EasySwoole\Http\Dispatcher::getInstance()->setNamespacePrefix($namespace)->setMaxDepth($depth)->setControllerMaxPoolNum($max)->setControllerPoolWaitTime($waitTime);;
+        $httpDispatcher = \EasySwoole\EasySwoole\Http\Dispatcher::getInstance()->setNamespacePrefix($namespace)->setMaxDepth($depth);;
         // 补充HTTP_EXCEPTION_HANDLER默认回调
         $httpExceptionHandler = Di::getInstance()->get(SysConst::HTTP_EXCEPTION_HANDLER);
 

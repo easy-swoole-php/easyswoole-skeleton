@@ -13,41 +13,33 @@
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "YF",
-            "email": "291323003@qq.com"
-        },
-        {
             "name": "XueSi",
             "email": "1592328848@qq.com"
         }
     ],
     "require": {
-        "php": ">=7.3",
+        "php": ">=8.1",
         "ext-swoole": ">=4.4.4",
         "ext-json": "*",
         "ext-ctype": "*",
         "ext-mbstring": "*",
-        "easyswoole/easyswoole": "3.5.1",
-        "easyswoole/orm": "1.5.4",
+        "easyswoole/easyswoole": "3.7.1",
+        "easy-swoole-php/orm": "1.5.5",
         "easyswoole/i18n": "1.0.0",
-        "easyswoole/template": "1.1.0",
-        "easyswoole/task": "1.1.2",
-        "easyswoole/redis": "1.3.10",
-        "easyswoole/redis-pool": "2.2.1",
-        "easyswoole/socket": "1.2.1",
-        "easyswoole/http-client": "1.5.0",
-        "easyswoole/apollo": "1.0.0",
-        "easyswoole/consul": "1.0.3",
-        "easyswoole/crontab": "1.0.5",
-        "easyswoole/http-annotation": "2.2.1",
-        "easyswoole/mysqli": "2.2.11",
-        "easyswoole/queue": "3.0.3",
-        "easyswoole/validate": "2.1.3",
-        "easyswoole/http": "2.0.4",
-        "easyswoole/verifycode": "3.0.2",
-        "easyswoole/file-watcher": "1.0.0",
+        "easyswoole/task": "2.0.2",
+        "easyswoole/redis": "2.0.4",
+        "easyswoole/redis-pool": "3.0.3",
+        "easyswoole/socket": "1.3.1",
+        "easyswoole/http-client": "1.6.1",
+        "easyswoole/crontab": "1.0.6",
+        "easyswoole/http-annotation": "3.2.13",
+        "easyswoole/mysqli": "4.0.9",
+        "easyswoole/queue": "4.8.12",
+        "easyswoole/http": "3.1.2",
+        "easyswoole/verifycode": "3.1.2",
+        "easyswoole/file-watcher": "dev-master",
         "psr/container": "2.0.2",
-        "easyapi/validate": "1.0.0"
+        "easyapi/validate": "^1.0"
     },
     "require-dev": {
         "swoole/ide-helper": "^5.1",

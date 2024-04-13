@@ -16,6 +16,6 @@ class Log extends BaseController
         AppLog::waring('this waring log', 'waring');
         AppLog::error('this error log', 'error');
 
-        return ['log'];
+        return json(['log']);
     }
 }

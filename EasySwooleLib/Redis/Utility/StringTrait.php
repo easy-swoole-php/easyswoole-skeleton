@@ -3,7 +3,7 @@
 namespace EasySwooleLib\Redis\Utility;
 
 use EasySwooleLib\Redis\Utility\Exception\RedisException;
-use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\Redis\Config as RedisConfig;
 use EasySwoole\Redis\Redis;
 use EasySwoole\RedisPool\RedisPool;
 

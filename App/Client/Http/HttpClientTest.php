@@ -4,6 +4,7 @@ namespace App\Client\Http;
 
 use EasySwoole\HttpClient\HttpClient;
 use Swoole\Coroutine;
+use function Swoole\Coroutine\run;
 
 if (!class_exists(HttpClient::class)) {
     require_once __DIR__ . '/../../../vendor/autoload.php';
@@ -31,7 +32,7 @@ class HttpClientTest
             return $this->httpGetRequest();
         } else {
             // 非协程环境下
-            Coroutine::create(function () {
+            run(function () {
                 $this->httpGetRequest();
             });
         }
@@ -62,7 +63,7 @@ class HttpClientTest
             return $result;
         } else {
             // 非协程环境下
-            Coroutine::create(function () {
+            run(function () {
                 $this->httpPostRequest("http://localhost:9501/hello/XueSi");
                 $this->httpPostRequest("http://localhost:9503/hello/XueSi");
             });

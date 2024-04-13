@@ -4,6 +4,7 @@ namespace App\Client\Udp;
 
 use Swoole\Coroutine;
 use Swoole\Coroutine\Client;
+use function Swoole\Coroutine\run;
 
 class UdpClientTest
 {
@@ -30,7 +31,7 @@ class UdpClientTest
             return $this->udpSendTo();
         } else {
             // 非协程环境下
-            Coroutine::create(function () {
+            run(function () {
                 $this->udpSendTo();
             });
         }
@@ -39,5 +40,5 @@ class UdpClientTest
     }
 }
 
-$test = new UdpClientTest();
-$test->test();
+//$test = new UdpClientTest();
+//$test->test();

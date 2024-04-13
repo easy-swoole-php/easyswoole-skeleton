@@ -4,8 +4,8 @@ namespace App\Command;
 
 use EasySwoole\Command\AbstractInterface\CommandHelpInterface;
 use EasySwoole\EasySwoole\Command\CommandInterface;
-use EasySwoole\Mysqli\Client;
 use EasySwoole\ORM\Db\MysqliClient;
+use function Swoole\Coroutine\run;
 
 class FooCommand implements CommandInterface
 {
@@ -16,7 +16,7 @@ class FooCommand implements CommandInterface
 
     public function exec(): ?string
     {
-        go(function () {
+        run(function () {
             $config = config('databases.default');
             var_dump($config);
             $configObject = new \EasySwoole\Mysqli\Config($config);

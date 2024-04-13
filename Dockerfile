@@ -5,7 +5,7 @@
 # @contact  https://www.easyswoole.com
 # @license  https://github.com/easy-swoole/easyswoole/blob/3.x/LICENSE
 
-FROM easyswoolexuesi2021/easyswoole:php7.4.33-alpine3.15-swoole4.4.26
+FROM easyswoolexuesi2021/easyswoole:php8.1.27-alpine3.18-swoole5.1.1
 LABEL maintainer="EasySwoole Developers https://www.easyswoole.com" version="1.0" license="Apache 2.0"
 
 ##
@@ -22,7 +22,7 @@ RUN set -ex \
 #    && php -m \
 #    && php --ri swoole \
     #  ---------- some config ----------
-    && cd /etc/php7 \
+    && cd /etc/php81 \
     # - config PHP
     && { \
         echo "upload_max_filesize=128M"; \
@@ -39,11 +39,7 @@ RUN set -ex \
 
 WORKDIR /var/www
 
-COPY . /var/www
-
-RUN composer install --no-dev && composer clearcache && php easyswoole
-
 EXPOSE 9501 9502 9503 9504 9505
 
-#ENTRYPOINT ["php", "/var/www/easyswoole", "server", "start", "-mode=dev"]
-#CMD ["php", "/var/www/easyswoole", "server", "start", "-mode=dev"]
+#ENTRYPOINT ["php", "/var/www/easyswoole.php", "server", "start", "-mode=dev"]
+#CMD ["php", "/var/www/easyswoole.php", "server", "start", "-mode=dev"]

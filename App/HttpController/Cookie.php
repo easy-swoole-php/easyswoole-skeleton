@@ -23,7 +23,7 @@ class Cookie extends BaseController
     // eg: http://localhost:9501/Cookie/del
     public function del()
     {
-        $this->response()->setCookie('c-name', null);
+        $this->response()->setCookie('c-name', '');
         return json(['ok']);
     }
 }

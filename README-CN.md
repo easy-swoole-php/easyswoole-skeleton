@@ -47,7 +47,13 @@ docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-req
 ## 安装 3.7.x 版本
 
 ```bash
-# todo::
+composer create-project easy-swoole-php/easyswoole-skeleton="3.7.1" project_name
+```
+
+如果你的开发环境是基于 `Docker` 的，你可以使用官方的 `Composer` 镜像来创建一个新的 `EasySwoole` 项目：
+
+```bash
+docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-reqs easy-swoole-php/easyswoole-skeleton="3.7.1" project_name
 ```
 
 # 入门
@@ -67,6 +73,11 @@ php easyswoole server start # for the Development environment
 或者，如果在基于 `Docker` 的环境中，您可以使用骨架提供的 `docker-compose/docker-compose.yml`：
 
 ```bash
+# install packages
+cd project_name
+docker run --rm -it -v $(pwd):/app composer install --ignore-platform-reqs
+
+# start services
 cd project_name/docker-compose
 docker-compose up
 ```

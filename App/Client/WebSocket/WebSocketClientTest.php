@@ -4,6 +4,11 @@ namespace App\Client\WebSocket;
 
 use Swoole\Coroutine;
 use EasySwoole\HttpClient\HttpClient;
+use function Swoole\Coroutine\run;
+
+if (!class_exists(HttpClient::class)) {
+    require_once __DIR__ . '/../../../vendor/autoload.php';
+}
 
 class WebSocketClientTest
 {
@@ -36,7 +41,7 @@ class WebSocketClientTest
             return $this->websocketPush();
         } else {
             // 非协程环境下
-            Coroutine::create(function () {
+            run(function () {
                 $this->websocketPush();
             });
         }
@@ -44,3 +49,6 @@ class WebSocketClientTest
         return null;
     }
 }
+
+//$test = new WebSocketClientTest();
+//$test->test();

@@ -14,12 +14,12 @@ class FooQueue extends Queue
     {
         $job = new Job();
         $job->setJobData($jobData);
-        return $this->producer()->push($job);
+        return $this->producer('foo')->push($job);
     }
 
     public function consumeOrdinaryJob()
     {
-        $this->consumer()->listen(function (Job $job) {
+        $this->consumer('foo')->listen(function (Job $job) {
             var_dump($job->getJobData());
         });
     }

@@ -3,7 +3,7 @@
 namespace EasySwooleLib\Redis;
 
 use EasySwoole\Component\Singleton;
-use EasySwoole\Redis\Config\RedisConfig;
+use EasySwoole\Redis\Config as RedisConfig;
 use EasySwoole\Redis\Redis;
 use EasySwoole\RedisPool\RedisPool;
 use Swoole\Coroutine\Scheduler;

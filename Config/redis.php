@@ -9,7 +9,7 @@ return [
         'timeout'          => 3.0, // Redis 操作超时时间
         'reconnectTimes'   => 3, // Redis 自动重连次数
         'db'               => 0, // Redis 库
-        'serialize'        => \EasySwoole\Redis\Config\RedisConfig::SERIALIZE_NONE, // 序列化类型，默认不序列化
+        'serialize'        => \EasySwoole\Redis\Config::SERIALIZE_NONE, // 序列化类型，默认不序列化
         'packageMaxLength' => 1024 * 1024 * 2, // 允许操作的最大数据包 2M
         'prefix'           => '', // key 前缀
         'debug'            => true, // 调试模式，开启时会打印 redis 操作执行的 command

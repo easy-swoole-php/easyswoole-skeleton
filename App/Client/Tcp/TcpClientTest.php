@@ -4,6 +4,7 @@ namespace App\Client\Tcp;
 
 use Swoole\Coroutine;
 use Swoole\Coroutine\Client;
+use function Swoole\Coroutine\run;
 
 class TcpClientTest
 {
@@ -49,7 +50,7 @@ class TcpClientTest
             return $this->tcpSend();
         } else {
             // 非协程环境下
-            Coroutine::create(function () {
+            run(function () {
                 $this->tcpSend();
             });
         }
