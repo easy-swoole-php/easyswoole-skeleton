@@ -51,7 +51,7 @@ trait SetTrait
         }, $connectionName);
 
         // handle exception
-        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($value) . "\"";
+        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($val) . "\"";
         $command = "SADD {$key} {$valStr}";
         self::handleException($command, $connectionName, $result);
 
@@ -1145,7 +1145,7 @@ trait SetTrait
         // handle exception
         $membersStrArr = [];
         foreach ($waitMembers as $item) {
-            $membersStrArr[] = "\"" . addslashes($member) . "\"";
+            $membersStrArr[] = "\"" . addslashes($item) . "\"";
         }
         $command = "SREM {$key} " . join(' ', $membersStrArr);
         self::handleException($command, $connectionName, $result);

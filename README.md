@@ -47,7 +47,13 @@ docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-req
 ## Install 3.7.x version
 
 ```bash
-# todo::
+composer create-project easy-swoole-php/easyswoole-skeleton="3.7.1" project_name
+```
+
+If your development environment is based on `Docker` you can use the official `Composer` image to create a new `EasySwoole` project:
+
+```bash
+docker run --rm -it -v $(pwd):/app composer create-project --ignore-platform-reqs easy-swoole-php/easyswoole-skeleton="3.7.1" project_name
 ```
 
 # Getting started
@@ -67,6 +73,11 @@ php easyswoole server start # for the Development environment
 Or if in a `Docker` based environment you can use the `docker-compose/docker-compose.yml` provided by the template:
 
 ```bash
+# install packages
+cd project_name
+docker run --rm -it -v $(pwd):/app composer install --ignore-platform-reqs
+
+# start services
 cd project_name/docker-compose
 docker-compose up
 ```

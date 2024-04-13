@@ -39,10 +39,6 @@ RUN set -ex \
 
 WORKDIR /var/www
 
-COPY . /var/www
-
-RUN composer install --no-dev && composer clearcache && php easyswoole
-
 EXPOSE 9501 9502 9503 9504 9505
 
 #ENTRYPOINT ["php", "/var/www/easyswoole", "server", "start", "-mode=dev"]
