@@ -657,7 +657,7 @@ trait HashTrait
         }, $connectionName);
 
         // handle exception
-        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($value) . "\"";
+        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($val) . "\"";
         $command = "HSET {$key} {$hashKey} {$valStr}";
         self::handleException($command, $connectionName, $result);
 
@@ -710,7 +710,7 @@ trait HashTrait
         }, $connectionName);
 
         // handle exception
-        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($value) . "\"";
+        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($val) . "\"";
         $command = "HSETNX {$key} {$hashKey} {$valStr}";
         self::handleException($command, $connectionName, $result);
 

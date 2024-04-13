@@ -67,7 +67,7 @@ trait SortedSetTrait
         }, $connectionName);
 
         // handle exception
-        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($value) . "\"";
+        $valStr  = is_numeric($val) ? $val : "\"" . addslashes($val) . "\"";
         $command = "ZADD {$key} {$score} {$valStr}";
         self::handleException($command, $connectionName, $result);
 
