@@ -662,10 +662,6 @@ class Request
     public function ip(int $type = 0, bool $adv = true)
     {
         $type = $type ? 1 : 0;
-        static $ip = null;
-        if (null !== $ip) {
-            return $ip[$type];
-        }
 
         $httpAgentIp = config('app.http_agent_ip');
 

@@ -5,6 +5,7 @@ namespace EasySwooleLib\Server\Utility;
 use EasySwoole\Command\Color;
 use EasySwoole\EasySwoole\ServerManager;
 use EasySwooleLib\Logger\Log;
+use Swoole\Server;
 
 class TcpServerUtil
 {
@@ -22,9 +23,10 @@ class TcpServerUtil
         string $data
     ): bool
     {
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
-        if (!$swooleServer->isEstablished($receiver)) {
+        if (!$swooleServer->exist($receiver)) {
             return false;
         }
 
@@ -62,6 +64,7 @@ class TcpServerUtil
         $count = 0;
         $fromUser = 'SYSTEM';
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         // To receivers
@@ -71,7 +74,7 @@ class TcpServerUtil
             Log::info(Color::green($log));
 
             foreach ($receivers as $fd) {
-                if ($fd && $swooleServer->isEstablished((int)$fd)) {
+                if ($fd && $swooleServer->exist((int)$fd)) {
                     $count++;
                     $swooleServer->send($fd, $data);
                 }
@@ -147,6 +150,7 @@ class TcpServerUtil
         $log = "[Tcp](broadcast)The #{$fromUser} send a message to all users. Data: {$data}";
         Log::info(Color::green($log));
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         return self::pageEach(function (int $fd) use ($data, $swooleServer) {
@@ -166,6 +170,7 @@ class TcpServerUtil
     {
         $count = $startFd = 0;
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         while (true) {

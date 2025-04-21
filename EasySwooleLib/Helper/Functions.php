@@ -89,17 +89,23 @@ if (!function_exists('easyswoole_response')) {
 
 if (!function_exists('response')) {
     /**
-     * 发送普通数据给客户端
+     * 创建响应对象或响应数据给客户端
      *
      * @param mixed      $data   输出数据
      * @param int|string $code   状态码
      * @param array      $header 头信息
      * @param string     $type
      *
-     * @return false|mixed
+     * @return \EasySwooleLib\Response\Response|false|mixed
      */
     function response($data = [], int $code = 200, array $header = [], string $type = 'html')
     {
+        if (func_num_args() === 0) {
+            // 无参数调用，返回Response对象实例，不立即发送
+            return \EasySwooleLib\Response\Response::create(easyswoole_response(), null, $type, $code, $header);
+        }
+
+        // 有参数调用，创建Response对象并立即发送
         return \EasySwooleLib\Response\Response::create(easyswoole_response(), $data, $type, $code, $header)->send();
     }
 }

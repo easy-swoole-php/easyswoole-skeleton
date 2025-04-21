@@ -6,6 +6,7 @@ use EasySwoole\Command\Color;
 use EasySwoole\EasySwoole\ServerManager;
 use EasySwooleLib\Logger\Log;
 use Swoole\WebSocket\Frame;
+use Swoole\WebSocket\Server;
 
 class WebSocketServerUtil
 {
@@ -27,6 +28,7 @@ class WebSocketServerUtil
         bool $finish = true
     ): bool
     {
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         if (!$swooleServer->isEstablished($receiver)) {
@@ -69,6 +71,7 @@ class WebSocketServerUtil
         $count = 0;
         $fromUser = 'SYSTEM';
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         // To receivers
@@ -157,6 +160,7 @@ class WebSocketServerUtil
         $log = "[WebSocket](broadcast)The #{$fromUser} send a message to all users. Opcode: $opcode Data: {$data}";
         Log::info(Color::green($log));
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         return self::pageEach(function (int $fd) use ($data, $opcode, $swooleServer) {
@@ -176,6 +180,7 @@ class WebSocketServerUtil
     {
         $count = $startFd = 0;
 
+        /** @var Server $swooleServer */
         $swooleServer = ServerManager::getInstance()->getSwooleServer();
 
         while (true) {
